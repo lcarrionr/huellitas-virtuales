@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7f3e7] px-4 md:px-10 py-3">
+          <div class="flex items-center gap-2 md:gap-4 text-[#0e1b0e]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#0e1b0e] text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">Animal Shelter</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-2 md:gap-8">
+            <div class="hidden md:flex items-center gap-9">
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="inicio.html">Inicio</a>
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="apadrina.html">Apadrina</a>
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="actualizacion.html">Actualizaciones</a>
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="contribucion.html">Donar</a>
+            </div>
+            <!-- Mobile menu button -->
+            <button class="md:hidden flex items-center justify-center w-8 h-8 rounded-lg bg-[#e7f3e7]" onclick="toggleMobileMenu()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+              </svg>
+            </button>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 md:h-10 bg-[#e7f3e7] text-[#0e1b0e] gap-2 text-xs md:text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+              onclick="window.location.href='nivel.html'"
+            >
+              <div class="text-[#0e1b0e]" data-icon="Bell" data-size="16px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 md:size-10 cursor-pointer"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQNcgC4Yc4-FSyzfRND4VAO836f9d-r1SIDGerwK8_f3i4G2JB4wz6i-ReUPqp48mKORBQ31zHllalY-vebHYOS6RQPtyUv0Z1ujgKJNpw4A6vhTKKr0UCpKYmnHrrnqS0rNNPRviAAWN2TOxb69uDExbQW8SXmVUX10MWrYQkF--ynR6fcgdQUxBpMq1KdS6NXUdz1pNp1iklDRXgXkXUixpMhn5PHY0XbC3qkXYw3HZ_vn8Xazl4UZiQ2LGP4WAwp5TBPS6QGXI");'
+              onclick="window.location.href='nivel.html'"
+            ></div>
+          </div>
+        </header>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#f8fcf8] border-b border-[#e7f3e7] px-4 py-3">
+          <div class="flex flex-col gap-3">
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="inicio.html">Inicio</a>
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="apadrina.html">Apadrina</a>
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="actualizacion.html">Actualizaciones</a>
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="contribucion.html">Donar</a>
+          </div>
+        </div>
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0e1b0e] tracking-light text-2xl md:text-[32px] font-bold leading-tight">Actualizaciones de tu animal</p>
+                <p class="text-[#4e974e] text-sm font-normal leading-normal">Sigue el progreso de tu animal apadrinado y mantente al tanto de sus últimas noticias.</p>
+              </div>
+            </div>
+            <h2 class="text-[#0e1b0e] text-lg md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Nombre del animal</h2>
+            <div class="flex w-full grow bg-[#f8fcf8] @container p-4">
+              <div class="w-full gap-1 overflow-hidden bg-[#f8fcf8] @[480px]:gap-2 aspect-[3/2] rounded-xl grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr]">
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none md:row-span-2"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBs1deS3bj_9dQf5j-wcI0jA4jgnQNScJq_bQ4q9pTCQts1fn_f3TVIhZjNonYjz6l9If5tCVu9CX14qCF_cgohYj-wz0_CatXiHSBbItOlwHvyX5oemOFmsSIz4i6Z3Cvj7-efBhCycXzS7xcTOqmnCU2vcZcm4lgXlYmRnXAP88TcJ0GsA8wWf8RH1J0QoegWjVWImlHaNcE6VjrAo72ObXmih8B9ZUsHqyB68RtjwgisEny1MvvCGGi7j0-YRqztxw7KWfib51I");'
+                ></div>
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none hidden md:block md:col-span-2"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIfhEfxPoCAzMy1j6PbMx93Hk5yQFAb0i0Ug3X0RfAANhigD7l1_LuGfQt0Wdr4wVaObYIOozL30CaJWdAehhZgZ0R9k-meBDCFhAfDEBifKCGKMCViFprt9b9BQlqETMFZAcAB4jSs-DcB_4gGBw_EKdCev5M4OEHDrpSAQR80tNGzVuCymA3WzeOMt5_6aIDFXT_wpcF0GEq3Fwpex0MSOYsl1v4K8X87Jq2kd-ZRLwFNdSZa45ZGjR_xupWXtktEB7XlNfo5cM");'
+                ></div>
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none hidden md:block md:col-span-2"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBoYdZPqA_fyMXrelbiHprt3M0mGEyb_LbAnHa00fvSy2-_zqydauhsXRCySOg-LdCpeB4CknJOPKVwAke-V-LdMvgB79KVKswNV72o0xsqWKlhSVyM7OTOaemvAnstX0sXFJoaT6M4yKIpfMFq788Ge3VKGDEtzkYBGVrJzutefEQzlE-EiX3xK2WUzlnefrQEwl3Dbgqk5RakUflyJsD4tx-l3qGyF7FZowfq1GWwebHZYBGNTf1c0gVbtmP6BeTV1I43-ioaZqY");'
+                ></div>
+              </div>
+            </div>
+            <h2 class="text-[#0e1b0e] text-lg md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Videos</h2>
+            <div class="p-4">
+              <div
+                class="relative flex items-center justify-center bg-[#17cf17] bg-cover bg-center aspect-video rounded-xl p-4"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcnl3hUaVBuFY_4AicTkaYwOkaJCHf_6OqCG-w6XzGaAWcZbDLWvY913sn7xPLzcv5QjlOO0pxp7YNbzYgR8pKqdC_9z6V_43h9ubZ6XpszhqnaLQO1CnaDFnXncLJQTVvT-isu4hKeYl4nhVs0v1ItNuxmY5pSEMdkL0gSKnhkrl4vetKCFpCZ6V6Uh8s4TmaFBFfNGO4GfzBxmpWC27YH68gaDv42EuULnVrwcNY2vlYCLMjOGb5NhaOdMsW5rTpTla4qLgrk_8");'
+              >
+                <button class="flex shrink-0 items-center justify-center rounded-full size-12 md:size-16 bg-black/40 text-white">
+                  <div class="text-inherit" data-icon="Play" data-size="20px" data-weight="fill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <h2 class="text-[#0e1b0e] text-lg md:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Noticias</h2>
+            <div class="p-4">
+              <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">20 de Mayo, 2024</p>
+                  <p class="text-[#0e1b0e] text-base font-bold leading-tight">El animal está mejorando</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    El animal ha mostrado una gran mejora en su salud y comportamiento. Está más activo y juguetón, y ha ganado peso de forma saludable. Su pelaje está brillante y
+                    sus ojos reflejan vitalidad. Los veterinarios están muy contentos con su progreso y esperan que pronto pueda ser trasladado a un hogar de acogida.
+                  </p>
+                </div>
+                <div
+                  class="w-full md:w-auto bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmt1NBzSTQp31nv2VF_2V6eRq9s9Cz2J9sxZjyyuF5p9-OmoLKm5L4cYnt_u2anZC2a0aV3Y-e1ai4JHlEmXZAcuuEHZi3Vp0eryLhNXeChGD_VTOBoXdsybiyniDoVzWJNWlB2gBVhb4ssCsWX-diou8ydBNZG0qALm710ktpt-Cr3s35Do2QxhRyQ8I6QGdHRVIzMFlMXm1tMVTTrcTRfsaBIxNQYPZ3V_wIuJNVbuNXYBB95JiAe629r6TDKeZk29m63k5FV84");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">10 de Mayo, 2024</p>
+                  <p class="text-[#0e1b0e] text-base font-bold leading-tight">El animal está en tratamiento</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    El animal ha comenzado un tratamiento para mejorar su salud. Está recibiendo medicamentos y cuidados especiales para ayudarle a recuperarse. Los veterinarios
+                    están monitoreando de cerca su progreso y ajustando el tratamiento según sea necesario. El animal está respondiendo bien al tratamiento y se espera que mejore
+                    gradualmente.
+                  </p>
+                </div>
+                <div
+                  class="w-full md:w-auto bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDd95d9sZJDhoaUaNMw82et3Zi6C4rRYmOp2YO2wx8s5m2Y4AMmA1asAYxgSRQqAC8Fm9fxlYedzBv2rVez3KAmaK17MFnfmPNPIIqcsF-9Lztd1i-gRz3ES59blXZiKm3c01-REvpaKa65FJoHNBHtrZRZ6fgF7oTpQ-Ut3PZWtDsiKlZFHRLN2XH4zixWVU-GhfBz2n3ILn8mysN-QrXuclysjiviJj5TrR8-h0z34dBpw64mRk6mpx226JaBujHVEcB7EQ1s-98");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">1 de Mayo, 2024</p>
+                  <p class="text-[#0e1b0e] text-base font-bold leading-tight">El animal ha llegado al refugio</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    El animal ha llegado al refugio y está siendo evaluado por los veterinarios. Se le está proporcionando un ambiente cálido y seguro para que se adapte a su nuevo
+                    hogar temporal. Los veterinarios están realizando exámenes para determinar su estado de salud y planificar el tratamiento adecuado. El animal está tranquilo y
+                    parece estar adaptándose bien.
+                  </p>
+                </div>
+                <div
+                  class="w-full md:w-auto bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDqja1bVeIpxBLMWk_Wykok0i5gsuYhjn4Nc6fn-EUiOuihGLjRh04-kncQvvFaSKAKQFkZDFY-L7JMMnLYMM3QO8LI4rnY5eIAh9mukvRnfsz4dcAFmAuxsxtZItYuzSRaJW2BAOkZWcTWGhL0IEQ-3qwtbxeaGJQPPyK0OsOBDlIr5kwfstr58EijNVIL7oHhdELWfmD9mV1mJIU82KPQr-npBV3pd_2EUE3mOBLjI8GATdeS88rmhh2dHzPMTpTOj_a_uNE9g1s");'
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+      }
+    </script>
+  </body>
+</html>

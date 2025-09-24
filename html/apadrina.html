@@ -1,0 +1,214 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7f3e7] px-4 md:px-10 py-3">
+          <div class="flex items-center gap-2 md:gap-4 text-[#0e1b0e]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#0e1b0e] text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">AnimalKind</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-2 md:gap-8">
+            <div class="hidden md:flex items-center gap-9">
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="inicio.html">Inicio</a>
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="apadrina.html">Apadrina</a>
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="actualizacion.html">Actualizaciones</a>
+              <a class="text-[#0e1b0e] text-sm font-medium leading-normal" href="contribucion.html">Donar</a>
+            </div>
+            <!-- Mobile menu button -->
+            <button class="md:hidden flex items-center justify-center w-8 h-8 rounded-lg bg-[#e7f3e7]" onclick="toggleMobileMenu()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+              </svg>
+            </button>
+            <button
+              class="flex min-w-[60px] md:min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 md:h-10 px-2 md:px-4 bg-[#17cf17] text-[#0e1b0e] text-xs md:text-sm font-bold leading-normal tracking-[0.015em]"
+              onclick="window.location.href='contribucion.html'"
+            >
+              <span class="truncate">Donar</span>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 md:size-10 cursor-pointer"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmSJ6gGTQ4eIZT_lP13VFNh-ggHq3rNNupZ-rJcfoPMY2Yh3jVpGzVZfahzI2HOcouYLXspvPF428WXjX0yCHsMfiK7dcjx_SOWy8lbYfqj3r13Uo8Qz6KAeWAMi1KEj7PZyD4EJ-rlvT-1AMsnOHzTXGfkDVnS_mPUwB2V_LZfen4qr-Eu3i1t2yDN607rmhq0eP29wGB7FLfAVlC4XFF1j_NREO_XcLBxyeKmA4dvYDBDHs-ZnMyMQJAJq-IMyNl9wnW2mi1onk");'
+            ></div>
+          </div>
+        </header>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#f8fcf8] border-b border-[#e7f3e7] px-4 py-3">
+          <div class="flex flex-col gap-3">
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="inicio.html">Inicio</a>
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="apadrina.html">Apadrina</a>
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="actualizacion.html">Actualizaciones</a>
+            <a class="text-[#0e1b0e] text-sm font-medium leading-normal py-2" href="contribucion.html">Donar</a>
+          </div>
+        </div>
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0e1b0e] tracking-light text-2xl md:text-[32px] font-bold leading-tight">Apadrina un Animal</p>
+                <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                  Haz una donación mensual para ayudar a cuidar a un animal necesitado. Tu apoyo marca la diferencia en sus vidas.
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdqDGcnGFUNIRiG3sCqNdyyydfl7PQig4fHhNu3byEkAThl-BTIdIJSoKBxmBgoo7i9-gifI7rx6yoXmJrwy7_AHyqdTktVQU14xLRCx1oxBJndqRpJhbJaRNGLxpXmVmpqfHmQzr6iqie3qwFY1BXTwrhSF-uGFQfZhY9lm-AcCmuDcVW-0Mf8pt3wC5YCuinuSgteVM8pAIq2Ix48XXajcoG7gPZQzeJk6meobJk1pDvGXV8CifU98dPRHvVHu41ObFEquMvV3s");'
+                ></div>
+                <div>
+                  <p class="text-[#0e1b0e] text-base font-medium leading-normal">Paco, el Perezoso</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    Paco es un perezoso de tres dedos de 3 años rescatado en la selva de Tarapoto. Fue encontrado deshidratado y ahora se recupera.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsT3nKoRsH4TYRyTzuRl_t3mh0u-sYu9TcRLNqINgw1hAtSX6u-LIeUwqA8lUjKAoHLB_EAByNpLPLK-WeXPR1OCCDErLtXs4a3FMjQI_R6Z9ckVl8QQLLtkzSCs-Sb0gB2XwuxfQzIWrv6EryHkt9mfNBuNsdP0YJ8auNy70nBcu6juZuwmbrTLUt_QCyEniPeOWA4tTOJNdB1peyC2Qx29QG3iDe-nCSLEaSfpPyj-EkMnTj6X5DFBNAMBDSUXinVlkhYB2lKbg");'
+                ></div>
+                <div>
+                  <p class="text-[#0e1b0e] text-base font-medium leading-normal">Lila, la Guacamaya</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    Lila es una guacamaya azul y amarilla de 2 años rescatada de traficantes. Es muy sociable y aprende rápido.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBelmbeTdayw1VXsbMdCBswUqYWToxiqQEINK8izodYAcTMhdE7VZMK7NYsG8v5XqhAXLOkVLFiO0qllpvUf4gjoQmQDZGPgu2FMfvwkzbnJ3YkKQgZe2YewtWxxw3R40UcAjMndm5aNHqw1Rfq4rdXByJJpLaO7Aa4stap8GOtpv9KI41oU6nkqFFEwgISzvwXz10JOK7EwEK-83FMoyZcpLrDik1hLJLP0L4q63odC_Y75xa_MTBQ_oqlnivn6eKlYGl8dds47ew");'
+                ></div>
+                <div>
+                  <p class="text-[#0e1b0e] text-base font-medium leading-normal">Rumi, el Mono Titi</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    Rumi es un mono titi emperador de 4 años que fue entregado por una familia que lo tenía como mascota. Se adapta bien a su nuevo entorno.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkvVLMRS84L2F2nNxriw3irQkHoZ9_mwQOWUGJLatNTl_wQgrKMQBgXOX_fagePO9mGg4FsC89XzSt3GlishhNXtZCzD3XIzHVlJqcFLRQp-B1gV7PYBhoZ6EmK1bU4pTmGbtbvpU7-i9dA_2dvn9sO1JLoNH-rs03CYD2_2Zep8qV9yU96X97XHeaStjZNAIx9elg-nJqhEKM4whjbk11ogQSHoRV38XKx8KEhBVe6UcmHWYr41BvVjVdbeM4-w-UNwazTkthVd4");'
+                ></div>
+                <div>
+                  <p class="text-[#0e1b0e] text-base font-medium leading-normal">Nina, la Boa</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    Nina es una boa constrictor de 5 años encontrada en una zona urbana. Es tranquila y está bajo observación veterinaria.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9tca29ypDHKwXQdTpzle6u5We_IPoCDL98LEjp1ZCgp2yQF1QktPxdMfYsUhZWGJbc82ZSHC2UJ0StW_CUjU43vokj19DndIuf-5fb4owfmqJhOn-fvnm5cdHk4aEeZeJInN2MCVlr6loVebPynIRQhUKrFdWeCIQYSdZ2tphrQJh3k2MI5N1HOLQTBv9v0_goPhn73lDLESMx1ABF4k2bmVLkl7jgaWGC1wKi07zEt1juiSWZlfDtjlPbPbfV2kZZKH01ub2ctU");'
+                ></div>
+                <div>
+                  <p class="text-[#0e1b0e] text-base font-medium leading-normal">Toby, el Sajino</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    Toby es un sajino de collar de 6 años rescatado de un mercado ilegal. Es curioso y se integra bien con otros animales.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVsVm-a6PLIPvXdWMm_kxpkOlopVnXq7i6KTeOABI0RJQPnuYnx5_XX43NazZIfdL5AhEoCfSsxzysgRqdXgezkcaDaL3Q08B5vdt3DqQ_W7-nZE4f4-ksargnu8OBoalOLo8nJULP3PZ3hG8tf4LsqfxFp9bZsS4e8M0aPyeXQmK7UtRlZuG72T4XhIcFFeGqd-FHN3O_equAuqViIBLYlyOVVWz-Hnt1Sn-T2tOr47mAGfTJU-p1DYXah2yW2hrCatJMfNW9FgU");'
+                ></div>
+                <div>
+                  <p class="text-[#0e1b0e] text-base font-medium leading-normal">Suri, la Tortuga Motelo</p>
+                  <p class="text-[#4e974e] text-sm font-normal leading-normal">
+                    Suri es una tortuga motelo de 7 años encontrada en un área deforestada. Es resistente y recibe cuidados especiales.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex px-4 py-3 justify-center">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e7f3e7] text-[#0e1b0e] text-sm font-bold leading-normal tracking-[0.015em]"
+                onclick="window.location.href='apadrina.html'"
+              >
+                <span class="truncate">Ver Todos los Animales</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <footer class="flex justify-center">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-4 md:px-5 py-10 text-center @container">
+              <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="inicio.html">Inicio</a>
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="apadrina.html">Apadrina</a>
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="actualizacion.html">Historias</a>
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="contribucion.html">Donar</a>
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="#contacto">Contacto</a>
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="#politica">Política de Privacidad</a>
+                <a class="text-[#4e974e] text-sm md:text-base font-normal leading-normal min-w-20 md:min-w-40" href="#terminos">Términos de Servicio</a>
+              </div>
+              <div class="flex flex-wrap justify-center gap-4">
+                <a href="#">
+                  <div class="text-[#4e974e]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#">
+                  <div class="text-[#4e974e]" data-icon="FacebookLogo" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#">
+                  <div class="text-[#4e974e]" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <p class="text-[#4e974e] text-base font-normal leading-normal">@2024 AnimalKind. Todos los derechos reservados.</p>
+            </footer>
+          </div>
+        </footer>
+      </div>
+    </div>
+    
+    <script>
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+      }
+    </script>
+  </body>
+</html>
