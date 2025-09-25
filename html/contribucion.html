@@ -74,23 +74,349 @@
             <p class="text-[#0e1b0e] text-base font-normal leading-normal pb-3 pt-1 px-4">
               Tu apoyo mensual nos ayuda a proporcionar refugio, alimento y atención médica a los animales necesitados. ¡Gracias por tu generosidad!
             </p>
-            <h3 class="text-[#0e1b0e] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Código QR para Yape o Plin</h3>
-            <div class="flex w-full grow bg-[#f8fcf8] @container p-4">
-              <div class="w-full gap-1 overflow-hidden bg-[#f8fcf8] @[480px]:gap-2 aspect-[4/3] md:aspect-[3/2] rounded-xl flex">
-                <div
-                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsc8dC5DGe0hPEwxvn1LlFPE66w06f7u0bJrdDSzuXJPDGKrq3Hf1ZqdB3EouxXmDgA879AeGaNrQS7-5HIFD9ktW6-x4WeOZBP0Ua8-iGnrCRyPlW3LD36wqn9pFqsi3maRgXBRYcVjVgikxryIhj-Kyr9V6V9cThSAzq4QGLTaLNWT1g9kp03gwmf5XN_5VzHebczmrZnqjb_Co1aYKWpzL8PICh6yBUe1-Xg69_qKDUa3G1aGSgDOWmNV8ez5v9xUuFzJ2oVs8");'
-                ></div>
+            <div id="pagoTarjeta" class="bg-white rounded-xl border border-[#d0e7d0] mx-4 mb-6">
+              <div class="p-6">
+                <h3 class="text-[#0e1b0e] text-lg font-bold leading-tight tracking-[-0.015em] mb-4">Pago con Tarjeta</h3>
+                <p class="text-[#4e974e] text-sm font-normal leading-normal mb-6">
+                  Realiza tu contribución mensual de forma segura con tu tarjeta de crédito o débito.
+                </p>
+                
+                <!-- Payment Method Selection -->
+                <div class="mb-6">
+                  <label class="text-[#0e1b0e] text-sm font-medium leading-normal mb-3 block">Selecciona tu método de pago</label>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <!-- Visa -->
+                    <div class="relative">
+                      <input type="radio" id="visa" name="payment-method" value="visa" class="sr-only peer" checked>
+                      <label for="visa" class="flex items-center justify-center p-4 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                        <div class="flex items-center gap-3">
+                          <div class="w-12 h-8 bg-[#1a1f71] rounded flex items-center justify-center">
+                            <span class="text-white text-xs font-bold">VISA</span>
+                          </div>
+                          <span class="text-[#0e1b0e] text-sm font-medium">Visa</span>
+                        </div>
+                      </label>
+                    </div>
+                    
+                    <!-- MasterCard -->
+                    <div class="relative">
+                      <input type="radio" id="mastercard" name="payment-method" value="mastercard" class="sr-only peer">
+                      <label for="mastercard" class="flex items-center justify-center p-4 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                        <div class="flex items-center gap-3">
+                          <div class="w-12 h-8 flex items-center justify-center">
+                            <div class="flex">
+                              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                              <div class="w-3 h-3 bg-yellow-500 rounded-full -ml-1"></div>
+                            </div>
+                          </div>
+                          <span class="text-[#0e1b0e] text-sm font-medium">MasterCard</span>
+                        </div>
+                      </label>
+                    </div>
+                    
+                    <!-- American Express -->
+                    <div class="relative">
+                      <input type="radio" id="amex" name="payment-method" value="amex" class="sr-only peer">
+                      <label for="amex" class="flex items-center justify-center p-4 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                        <div class="flex items-center gap-3">
+                          <div class="w-12 h-8 bg-[#006fcf] rounded flex items-center justify-center">
+                            <span class="text-white text-xs font-bold">AMEX</span>
+                          </div>
+                          <span class="text-[#0e1b0e] text-sm font-medium">American Express</span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card Form -->
+                <form id="cardForm" class="space-y-4">
+                  <!-- Card Number -->
+                  <div>
+                    <label for="cardNumber" class="text-[#0e1b0e] text-sm font-medium leading-normal mb-2 block">Número de tarjeta</label>
+                    <input 
+                      type="text" 
+                      id="cardNumber" 
+                      placeholder="1234 5678 9012 3456"
+                      class="w-full px-4 py-3 border border-[#d0e7d0] rounded-lg focus:outline-none focus:border-[#17cf17] focus:ring-1 focus:ring-[#17cf17] text-[#0e1b0e] placeholder-[#4e974e]"
+                      maxlength="19"
+                    >
+                  </div>
+
+                  <!-- Expiry and CVC -->
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label for="expiry" class="text-[#0e1b0e] text-sm font-medium leading-normal mb-2 block">Fecha de vencimiento</label>
+                      <input 
+                        type="text" 
+                        id="expiry" 
+                        placeholder="MM/AA"
+                        class="w-full px-4 py-3 border border-[#d0e7d0] rounded-lg focus:outline-none focus:border-[#17cf17] focus:ring-1 focus:ring-[#17cf17] text-[#0e1b0e] placeholder-[#4e974e]"
+                        maxlength="5"
+                      >
+                    </div>
+                    <div>
+                      <label for="cvc" class="text-[#0e1b0e] text-sm font-medium leading-normal mb-2 block">CVC</label>
+                      <input 
+                        type="text" 
+                        id="cvc" 
+                        placeholder="123"
+                        class="w-full px-4 py-3 border border-[#d0e7d0] rounded-lg focus:outline-none focus:border-[#17cf17] focus:ring-1 focus:ring-[#17cf17] text-[#0e1b0e] placeholder-[#4e974e]"
+                        maxlength="4"
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Cardholder Name -->
+                  <div>
+                    <label for="cardName" class="text-[#0e1b0e] text-sm font-medium leading-normal mb-2 block">Nombre del titular</label>
+                    <input 
+                      type="text" 
+                      id="cardName" 
+                      placeholder="Juan Pérez"
+                      class="w-full px-4 py-3 border border-[#d0e7d0] rounded-lg focus:outline-none focus:border-[#17cf17] focus:ring-1 focus:ring-[#17cf17] text-[#0e1b0e] placeholder-[#4e974e]"
+                    >
+                  </div>
+
+                  <!-- Amount Selection -->
+                  <div>
+                    <label class="text-[#0e1b0e] text-sm font-medium leading-normal mb-3 block">Monto de contribución mensual</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <div class="relative">
+                        <input type="radio" id="amount-15" name="amount" value="15" class="sr-only peer">
+                        <label for="amount-15" class="flex items-center justify-center p-3 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                          <span class="text-[#0e1b0e] font-medium">S/ 15</span>
+                        </label>
+                      </div>
+                      <div class="relative">
+                        <input type="radio" id="amount-25" name="amount" value="25" class="sr-only peer" checked>
+                        <label for="amount-25" class="flex items-center justify-center p-3 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                          <span class="text-[#0e1b0e] font-medium">S/ 25</span>
+                        </label>
+                      </div>
+                      <div class="relative">
+                        <input type="radio" id="amount-50" name="amount" value="50" class="sr-only peer">
+                        <label for="amount-50" class="flex items-center justify-center p-3 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                          <span class="text-[#0e1b0e] font-medium">S/ 50</span>
+                        </label>
+                      </div>
+                      <div class="relative">
+                        <input type="radio" id="amount-custom" name="amount" value="custom" class="sr-only peer">
+                        <label for="amount-custom" class="flex items-center justify-center p-3 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#17cf17] peer-checked:bg-[#f8fcf8] transition-all">
+                          <span class="text-[#0e1b0e] font-medium">Otro</span>
+                        </label>
+                      </div>
+                    </div>
+                    <input 
+                      type="number" 
+                      id="customAmount" 
+                      placeholder="Ingresa monto personalizado"
+                      class="w-full px-4 py-3 border border-[#d0e7d0] rounded-lg focus:outline-none focus:border-[#17cf17] focus:ring-1 focus:ring-[#17cf17] text-[#0e1b0e] placeholder-[#4e974e] mt-3 hidden"
+                      min="10"
+                    >
+                  </div>
+
+                  <!-- Security Notice -->
+                  <div class="flex items-start gap-3 bg-[#f8fcf8] p-4 rounded-lg border border-[#d0e7d0]">
+                    <div class="text-[#17cf17] mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-[#0e1b0e] text-sm font-medium mb-1">Pago 100% Seguro</p>
+                      <p class="text-[#4e974e] text-xs">Tu información está protegida con encriptación SSL de 256 bits. No almacenamos datos de tarjetas.</p>
+                    </div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button 
+                    type="submit"
+                    class="w-full flex items-center justify-center gap-2 bg-[#17cf17] hover:bg-[#15b815] text-[#0e1b0e] font-bold py-4 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#17cf17] focus:ring-offset-2"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path>
+                    </svg>
+                    <span>Contribuir Mensualmente</span>
+                  </button>
+                </form>
               </div>
             </div>
-            <p class="text-[#0e1b0e] text-base font-normal leading-normal pb-3 pt-1 px-4">
-              Escanea el código QR con tu aplicación de Yape o Plin para realizar tu contribución mensual. ¡Cada aporte cuenta!
-            </p>
-            <h3 class="text-[#0e1b0e] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Instrucciones</h3>
-            <p class="text-[#0e1b0e] text-base font-normal leading-normal pb-3 pt-1 px-4">
-              1. Abre tu aplicación de Yape o Plin. 2. Selecciona la opción de escanear QR. 3. Apunta la cámara de tu teléfono al código QR que aparece arriba. 4. Ingresa el monto
-              de tu contribución. 5. Confirma el pago. ¡Listo!
-            </p>
+            <!-- Sección mejorada de Yape y Plin -->
+            <div class="bg-white rounded-xl border border-[#d0e7d0] mx-4 mb-6">
+              <div class="p-6">
+                <h3 class="text-[#0e1b0e] text-lg font-bold leading-tight tracking-[-0.015em] mb-4">Pago con Yape o Plin</h3>
+                <p class="text-[#4e974e] text-sm font-normal leading-normal mb-6">
+                  Realiza tu contribución de forma rápida y segura con tu aplicación móvil favorita.
+                </p>
+
+                <!-- Selector de aplicación -->
+                <div class="mb-6">
+                  <label class="text-[#0e1b0e] text-sm font-medium leading-normal mb-3 block">Selecciona tu aplicación</label>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Yape -->
+                    <div class="relative">
+                      <input type="radio" id="yape" name="mobile-payment" value="yape" class="sr-only peer" checked>
+                      <label for="yape" class="flex items-center justify-center p-4 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#722F80] peer-checked:bg-[#f8fcf8] transition-all">
+                        <div class="flex items-center gap-3">
+                          <div class="w-12 h-12 bg-gradient-to-r from-[#722F80] to-[#A855F7] rounded-xl flex items-center justify-center shadow-lg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 2L13.09 8.26L18 7L16.74 13.26L22 12L15.74 18L12 22L8.26 18L2 12L8.26 13.26L7 7L13.26 8.26L12 2Z"/>
+                            </svg>
+                          </div>
+                          <div class="text-left">
+                            <span class="text-[#0e1b0e] text-base font-bold block">Yape</span>
+                            <span class="text-[#4e974e] text-xs">BCP</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    
+                    <!-- Plin -->
+                    <div class="relative">
+                      <input type="radio" id="plin" name="mobile-payment" value="plin" class="sr-only peer">
+                      <label for="plin" class="flex items-center justify-center p-4 border-2 border-[#d0e7d0] rounded-lg cursor-pointer hover:bg-[#f8fcf8] peer-checked:border-[#00D4AA] peer-checked:bg-[#f8fcf8] transition-all">
+                        <div class="flex items-center gap-3">
+                          <div class="w-12 h-12 bg-gradient-to-r from-[#00D4AA] to-[#00A693] rounded-xl flex items-center justify-center shadow-lg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="12" cy="8" r="3"/>
+                              <path d="M12 14c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/>
+                            </svg>
+                          </div>
+                          <div class="text-left">
+                            <span class="text-[#0e1b0e] text-base font-bold block">Plin</span>
+                            <span class="text-[#4e974e] text-xs">Multi-banco</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- QR Code Section -->
+                <div class="bg-gradient-to-br from-[#f8fcf8] to-white p-6 rounded-xl border border-[#d0e7d0] mb-6">
+                  <div class="text-center mb-4">
+                    <h4 class="text-[#0e1b0e] font-bold text-lg mb-2">Código QR para Pago</h4>
+                    <p class="text-[#4e974e] text-sm">Escanea con tu aplicación móvil</p>
+                  </div>
+                  
+                  <!-- QR Code generado con CSS -->
+                  <div class="flex justify-center mb-4">
+                    <div class="relative bg-white p-6 rounded-2xl shadow-lg border-2 border-[#e7f3e7]">
+                      <!-- QR Code simulado -->
+                      <div class="w-48 h-48 bg-white rounded-lg overflow-hidden relative border-2 border-gray-200">
+                        <!-- Patrón de QR simulado con CSS -->
+                        <div class="absolute inset-0 grid grid-cols-12 gap-0">
+                          <div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-black"></div><div class="bg-white"></div>
+                          <div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-white"></div><div class="bg-black"></div>
+                          <div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-white"></div><div class="bg-black"></div><div class="bg-black"></div><div class="bg-white"></div>
+                        </div>
+                        
+                        <!-- Logo central -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                          <div class="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center border-2 border-[#17cf17]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="#17cf17" viewBox="0 0 256 256">
+                              <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Información del QR -->
+                      <div class="mt-4 text-center">
+                        <p class="text-[#0e1b0e] font-medium text-sm">Huellitas Virtuales</p>
+                        <p class="text-[#4e974e] text-xs">Contribución Animal</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Información de contacto -->
+                  <div class="bg-white p-4 rounded-lg border border-[#e7f3e7] mb-4">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[#4e974e] text-sm">Número de contacto:</span>
+                      <span class="text-[#0e1b0e] font-bold text-base">900 000 000</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-2">
+                      <span class="text-[#4e974e] text-sm">Nombre:</span>
+                      <span class="text-[#0e1b0e] font-medium text-sm">Fundación Huellitas</span>
+                    </div>
+                  </div>
+
+                  <!-- Montos sugeridos -->
+                  <div class="mb-4">
+                    <label class="text-[#0e1b0e] text-sm font-medium leading-normal mb-3 block">Montos sugeridos</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <div class="bg-gradient-to-r from-[#17cf17] to-[#15b815] text-white p-3 rounded-lg text-center shadow-md">
+                        <div class="font-bold text-lg">S/ 15</div>
+                        <div class="text-xs opacity-90">Básico</div>
+                      </div>
+                      <div class="bg-gradient-to-r from-[#17cf17] to-[#15b815] text-white p-3 rounded-lg text-center shadow-md">
+                        <div class="font-bold text-lg">S/ 25</div>
+                        <div class="text-xs opacity-90">Popular</div>
+                      </div>
+                      <div class="bg-gradient-to-r from-[#17cf17] to-[#15b815] text-white p-3 rounded-lg text-center shadow-md">
+                        <div class="font-bold text-lg">S/ 50</div>
+                        <div class="text-xs opacity-90">Generoso</div>
+                      </div>
+                      <div class="bg-gradient-to-r from-[#4e974e] to-[#3d7a3d] text-white p-3 rounded-lg text-center shadow-md">
+                        <div class="font-bold text-lg">S/ 100</div>
+                        <div class="text-xs opacity-90">Super</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Instrucciones paso a paso -->
+                <div class="space-y-4">
+                  <h4 class="text-[#0e1b0e] font-bold text-base mb-3">¿Cómo realizar el pago?</h4>
+                  
+                  <div class="flex items-start gap-4 p-4 bg-[#f8fcf8] rounded-lg border border-[#e7f3e7]">
+                    <div class="flex-shrink-0 w-8 h-8 bg-[#17cf17] text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                    <div>
+                      <p class="text-[#0e1b0e] font-medium text-sm mb-1">Abre tu aplicación</p>
+                      <p class="text-[#4e974e] text-xs">Ingresa a Yape o Plin desde tu celular</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4 p-4 bg-[#f8fcf8] rounded-lg border border-[#e7f3e7]">
+                    <div class="flex-shrink-0 w-8 h-8 bg-[#17cf17] text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                    <div>
+                      <p class="text-[#0e1b0e] font-medium text-sm mb-1">Escanea el QR</p>
+                      <p class="text-[#4e974e] text-xs">Usa la opción "Escanear QR" y apunta a nuestro código</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4 p-4 bg-[#f8fcf8] rounded-lg border border-[#e7f3e7]">
+                    <div class="flex-shrink-0 w-8 h-8 bg-[#17cf17] text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                    <div>
+                      <p class="text-[#0e1b0e] font-medium text-sm mb-1">Ingresa el monto</p>
+                      <p class="text-[#4e974e] text-xs">Elige uno de nuestros montos sugeridos o ingresa el tuyo</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4 p-4 bg-[#f8fcf8] rounded-lg border border-[#e7f3e7]">
+                    <div class="flex-shrink-0 w-8 h-8 bg-[#17cf17] text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                    <div>
+                      <p class="text-[#0e1b0e] font-medium text-sm mb-1">Confirma y envía</p>
+                      <p class="text-[#4e974e] text-xs">Agrega un mensaje como "Donación Huellitas" y confirma el pago</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nota de seguridad -->
+                <div class="flex items-start gap-3 bg-gradient-to-r from-[#17cf17]/10 to-[#15b815]/10 p-4 rounded-lg border border-[#17cf17]/20 mt-6">
+                  <div class="text-[#17cf17] mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-[#0e1b0e] text-sm font-medium mb-1">Pago 100% Verificado</p>
+                    <p class="text-[#4e974e] text-xs">Nuestro número está verificado oficialmente. Todas las donaciones van directamente al cuidado de los animales.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="flex px-4 py-3 justify-start">
               <button
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e7f3e7] text-[#0e1b0e] text-sm font-bold leading-normal tracking-[0.015em]"
@@ -152,6 +478,124 @@
         const mobileMenu = document.getElementById('mobileMenu');
         mobileMenu.classList.toggle('hidden');
       }
+
+      // Funcionalidad para el formulario de tarjetas
+      document.addEventListener('DOMContentLoaded', function() {
+        // Formatear número de tarjeta
+        const cardNumberInput = document.getElementById('cardNumber');
+        cardNumberInput.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\s/g, '').replace(/\D/g, '');
+          let formattedValue = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+          e.target.value = formattedValue;
+        });
+
+        // Formatear fecha de vencimiento
+        const expiryInput = document.getElementById('expiry');
+        expiryInput.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          if (value.length >= 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+          }
+          e.target.value = value;
+        });
+
+        // Solo números en CVC
+        const cvcInput = document.getElementById('cvc');
+        cvcInput.addEventListener('input', function(e) {
+          e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Mostrar/ocultar campo de monto personalizado
+        const customAmountRadio = document.getElementById('amount-custom');
+        const customAmountInput = document.getElementById('customAmount');
+        const amountRadios = document.querySelectorAll('input[name="amount"]');
+
+        amountRadios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            if (this.value === 'custom') {
+              customAmountInput.classList.remove('hidden');
+              customAmountInput.focus();
+            } else {
+              customAmountInput.classList.add('hidden');
+              customAmountInput.value = '';
+            }
+          });
+        });
+
+        // Manejar envío del formulario
+        const cardForm = document.getElementById('cardForm');
+        cardForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Validaciones básicas
+          const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+          const expiry = document.getElementById('expiry').value;
+          const cvc = document.getElementById('cvc').value;
+          const cardName = document.getElementById('cardName').value;
+          const selectedAmount = document.querySelector('input[name="amount"]:checked');
+          
+          if (!cardNumber || cardNumber.length < 13) {
+            alert('Por favor ingresa un número de tarjeta válido');
+            return;
+          }
+          
+          if (!expiry || expiry.length !== 5) {
+            alert('Por favor ingresa una fecha de vencimiento válida (MM/AA)');
+            return;
+          }
+          
+          if (!cvc || cvc.length < 3) {
+            alert('Por favor ingresa un CVC válido');
+            return;
+          }
+          
+          if (!cardName.trim()) {
+            alert('Por favor ingresa el nombre del titular de la tarjeta');
+            return;
+          }
+          
+          if (!selectedAmount) {
+            alert('Por favor selecciona un monto de contribución');
+            return;
+          }
+
+          if (selectedAmount.value === 'custom') {
+            const customAmount = document.getElementById('customAmount').value;
+            if (!customAmount || parseFloat(customAmount) < 10) {
+              alert('El monto personalizado debe ser mínimo S/ 10');
+              return;
+            }
+          }
+          
+          // Simular procesamiento de pago
+          const submitButton = e.target.querySelector('button[type="submit"]');
+          const originalText = submitButton.innerHTML;
+          
+          submitButton.disabled = true;
+          submitButton.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Procesando pago...
+          `;
+          
+          setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalText;
+            
+            // Mostrar mensaje de éxito
+            const amount = selectedAmount.value === 'custom' ? 
+              document.getElementById('customAmount').value : 
+              selectedAmount.value;
+              
+            alert(`¡Gracias por tu contribución de S/ ${amount}! Tu pago ha sido procesado exitosamente. Recibirás un email de confirmación en breve.`);
+            
+            // Opcional: redirigir a página de confirmación
+            // window.location.href = 'nivel.html';
+          }, 2000);
+        });
+      });
     </script>
   </body>
 </html>
